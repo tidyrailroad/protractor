@@ -10,5 +10,10 @@
             console.log("SPEC STARTED") ;
             console.log(arguments);
         };
+        
+        this.specDone = function(result) {
+            console.log("SPEC FINISHED");
+            console.log(arguments);
+        };
     };
 }());
