@@ -6,6 +6,7 @@ RUN \
     apk upgrade && \
     apk add nodejs && \
     npm install -g protractor && \
+    webdriver-manager update && \
     apk add xvfb && \
     cd /protractor && \
     npm install xvfb && \
