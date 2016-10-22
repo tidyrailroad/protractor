@@ -1,6 +1,6 @@
 (function(){
     "use strict";
-    module.exports.conf = {
+    module.exports.config = {
         directConnect: true,
         capabilities: {
             'browserName': 'firefox'
