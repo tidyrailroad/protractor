@@ -7,6 +7,7 @@ RUN \
     apk add nodejs && \
     npm install -g protractor && \
     apk add xvfb && \
+    npm install -g xvfb && \
     apk add recordmydesktop && \
     apk add firefox-esr && \
     true
