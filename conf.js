@@ -9,7 +9,7 @@
         jasmineNodeOpts: {
             showColors: true, // Use colors in the command line report.
         },
-        baseUrl: 'http://www.protractortest.org/'
+        baseUrl: 'http://www.protractortest.org/',
         beforeLaunch: function(){
             console.log("BEFORE LAUNCH");
         },
