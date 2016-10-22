@@ -15,6 +15,7 @@
         beforeLaunch: function(){
             console.log("BEFORE LAUNCH");
             xvfb.startSync();
+            console.log("XVFB STARTED");
         },
         onPrepare: function(){
             console.log("ON PREPARE");

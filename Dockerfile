@@ -1,6 +1,7 @@
 FROM alpine:3.4
 COPY conf.js /protractor/
 COPY testit.spec.js /protractor/specs/
+COPY script.sh /usr/local/sbin/
 RUN \
     apk update && \
     apk upgrade && \
@@ -13,5 +14,5 @@ RUN \
     apk add recordmydesktop && \
     apk add firefox-esr && \
     true
-ENTRYPOINT ["protractor"]
+ENTRYPOINT ["/usr/local/sbin/script.sh"]
 CMD ["/protractor/conf.js"]
