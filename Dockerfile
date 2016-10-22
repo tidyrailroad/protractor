@@ -1,4 +1,5 @@
 FROM fedora:24
+COPY google-chrome.repo /etc/yum.repos.d/
 RUN \
     dnf update --assumeyes && \
     dnf install --assumeyes nodejs java-1.8.0-openjdk-devel xorg-x11-server-Xvfb recordmydesktop firefox google-chrome-stable && \
@@ -11,7 +12,5 @@ RUN \
     true
 COPY conf.js /protractor/
 COPY testit.spec.js /protractor/specs/
-COPY script.sh /usr/local/sbin/
-COPY google-chrome.repo /etc/yum.repos.d/
 ENTRYPOINT ["protractor"]
 CMD ["/protractor/conf.js"]
