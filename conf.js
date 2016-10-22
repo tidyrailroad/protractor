@@ -20,6 +20,8 @@
         onPrepare: function(){
             console.log("ON PREPARE");
             browser.ignoreSynchronization=true;
+            var Reporter = require("./reporter.js");
+            jasmine.getEnv().addReporter(new Reporter());
         },
         onComplete: function(){
             console.log("ON COMPLETE");  

@@ -14,5 +14,6 @@ RUN \
 VOLUME /protractor
 COPY conf.js /protractor/
 COPY testit.spec.js /protractor/specs/
+COPY reporter.js /protractor/
 ENTRYPOINT ["protractor"]
 CMD ["/protractor/conf.js"]
