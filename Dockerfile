@@ -5,7 +5,7 @@ COPY script.sh /usr/local/sbin/
 COPY google-chrome.repo /etc/yum.repos.d/
 RUN \
     dnf update --assumeyes && \
-    dnf install --assumeyes nodejs java-1.8.0-openjdk-devel xvfb recordmydesktop firefox google-chrome-stable && \
+    dnf install --assumeyes nodejs java-1.8.0-openjdk-devel xorg-x11-server-Xvfb recordmydesktop firefox google-chrome-stable && \
     npm install -g protractor && \
     webdriver-manager update && \
     cd /protractor && \
