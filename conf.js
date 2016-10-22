@@ -19,6 +19,7 @@
         },
         onPrepare: function(){
             console.log("ON PREPARE");
+            browser.ignoreSyncronization = false;
         },
         onComplete: function(){
             console.log("ON COMPLETE");  
