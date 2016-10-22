@@ -13,5 +13,5 @@ RUN \
     dnf update --assumeyes && \
     dnf clean all && \
     true
-ENTRYPOINT ["/usr/local/sbin/script.sh"]
+ENTRYPOINT ["protractor"]
 CMD ["/protractor/conf.js"]
