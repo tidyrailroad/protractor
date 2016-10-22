@@ -1,5 +1,7 @@
 (function(){
     "use strict";
+    var Xvfb = require("xvfb");
+    var xvfb = new Xvfb();
     module.exports.config = {
         directConnect: true,
         capabilities: {
@@ -12,6 +14,7 @@
         baseUrl: 'http://www.protractortest.org/',
         beforeLaunch: function(){
             console.log("BEFORE LAUNCH");
+            xvfb.startSync();
         },
         onPrepare: function(){
             console.log("ON PREPARE");
@@ -24,6 +27,7 @@
         },
         afterLaunch: function(){
             console.log("AFTER LAUNCH");
+            xvfb.stopSync();
         }
     };
 }());
