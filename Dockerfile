@@ -7,7 +7,7 @@ RUN \
     npm install -g protractor && \
     webdriver-manager update && \
     cd /protractor && \
-    npm install xvfb child-process-promise && \
+    npm install xvfb child-process-promise mktemp && \
     dnf update --assumeyes && \
     dnf clean all && \
     true
