@@ -2,19 +2,13 @@
     "use strict";
     module.exports = function() {
         var spawn = require("child-process-promise").spawn;
+        var say = require("say");
         var recordMyDesktop;
         
-        this.jasmineStarted = function(){
-            console.log("EXCITED");
-            console.log(arguments);
-        };
-        
-        this.specStarted = function() {
-            console.log("SPEC STARTED") ;
-            console.log(arguments);
-            spawn("recordmydesktop", ["-display", ":99", "-o", "/protractor/report/out.ogv", "--no-sound", "--on-the-fly-encoding"]).progress(function(progress){
-                console.log("START RECORDING");
+        this.specStarted = function(spec) {
+            spawn("recordmydesktop", ["-display", ":99", "-o", "/protractor/report/out.ogv", "--on-the-fly-encoding"]).progress(function(progress){
                 recordMyDesktop = progress;
+                say.speak(spec.description);
             });
         };
         

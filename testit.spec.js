@@ -4,7 +4,7 @@
         beforeEach(function(){
             browser.get("");
         });
-        it("works", function(){
+        it("This is a simple test.  Does it work?", function(){
             expect(element.all(by.tagName("h2")).count()).toEqual(5);
         });
     });
