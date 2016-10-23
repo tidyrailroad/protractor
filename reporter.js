@@ -1,7 +1,7 @@
 (function(){
     "use strict";
     module.exports = function() {
-        var spawn = require("child-proces-promise").spawn();
+        var spawn = require("child-process-promise").spawn;
         var recordMyDesktop;
         
         this.jasmineStarted = function(){
@@ -12,8 +12,9 @@
         this.specStarted = function() {
             console.log("SPEC STARTED") ;
             console.log(arguments);
-            spawn("recordmydesktop", ["--display", ":99", "-0", "/protractor/reports/out.ogv", "--no-sound", "--on-the-fly-encoding"]).progress(function(success){
-                recordMyDesktop = success;
+            spawn("recordmydesktop", ["-display", ":99", "-o", "/protractor/report/out.ogv", "--no-sound", "--on-the-fly-encoding"]).progress(function(progress){
+                console.log("START RECORDING");
+                recordMyDesktop = progress;
             });
         };
         

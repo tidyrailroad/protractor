@@ -11,7 +11,8 @@ RUN \
     dnf update --assumeyes && \
     dnf clean all && \
     true
-VOLUME /protractor
+VOLUME /protractor/specs
+VOLUME /proctactor/report
 COPY conf.js /protractor/
 COPY testit.spec.js /protractor/specs/
 COPY reporter.js /protractor/
