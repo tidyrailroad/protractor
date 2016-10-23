@@ -3,7 +3,7 @@
     var Xvfb = require("xvfb");
     var xvfb = new Xvfb({
         displayNum: 99,
-        xvfb_args: ["-screen", "0", "1280x1024x8"]
+        xvfb_args: ["-screen", "0", "1280x1024x16"]
     });
     module.exports.config = {
         directConnect: true,
