@@ -9,7 +9,7 @@
         directConnect: true,
         capabilities: {
             'browserName': 'firefox',
-            'firefox_profile': '/protractor/profiles/firefox'
+            'firefox_profile': '/protractor/profile'
         },
         specs: ['specs/**/*.js'],
         jasmineNodeOpts: {

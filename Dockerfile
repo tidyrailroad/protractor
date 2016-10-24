@@ -1,8 +1,8 @@
 FROM fedora:24
 COPY google-chrome.repo /etc/yum.repos.d/
 RUN \
-    dnf update --assumeyes && \
-    dnf install --assumeyes nodejs java-1.8.0-openjdk-devel xorg-x11-server-Xvfb recordmydesktop festival* festvox* firefox google-chrome-stable  && \
+    dnf update --assugit meyes && \
+    dnf install --assumeyes nodejs java-1.8.0-openjdk-devel xorg-x11-server-Xvfb recordmydesktop festival* festvqox* firefox google-chrome-stable  && \
     mkdir /protractor && \
     npm install -g protractor && \
     webdriver-manager update && \
@@ -13,8 +13,10 @@ RUN \
     true
 VOLUME /protractor/specs
 VOLUME /proctactor/report
+VOLUME /protractor/profile
 COPY conf.js /protractor/
 COPY testit.spec.js /protractor/specs/
 COPY reporter.js /protractor/
+COPY wt5l654z.default /protractor/profile
 ENTRYPOINT ["protractor"]
 CMD ["/protractor/conf.js"]
