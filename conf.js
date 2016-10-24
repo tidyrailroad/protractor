@@ -7,33 +7,35 @@
     });
     module.exports.config = {
         directConnect: true,
-        capabilities: {
-            'browserName': 'firefox'
-        },
+        multiCapabilities: [
+            {
+                'browserName': 'firefox'
+            },
+            {
+                'browserName': 'chrome'
+            }
+        ],
         specs: ['specs/**/*.js'],
         jasmineNodeOpts: {
             showColors: true, // Use colors in the command line report.
         },
         baseUrl: 'http://www.protractortest.org/#/',
         beforeLaunch: function(){
-            console.log("BEFORE LAUNCH");
             xvfb.startSync();
-            console.log("XVFB STARTED");
         },
         onPrepare: function(){
-            console.log("ON PREPARE");
+            browser.getCapabilities().then(function(caps){
+               var browserName = caps.caps_.browserName.toUpperCase();
+                jasmine.getEnv().addReporter(new Reporter(browserName));               
+            });
             browser.ignoreSynchronization=true;
             var Reporter = require("./reporter.js");
-            jasmine.getEnv().addReporter(new Reporter());
         },
         onComplete: function(){
-            console.log("ON COMPLETE");  
         },
         onCleanup: function(){
-            console.log("ON CLEANUP");
         },
         afterLaunch: function(){
-            console.log("AFTER LAUNCH");
             xvfb.stopSync();
         }
     };
