@@ -10,9 +10,6 @@
         multiCapabilities: [
             {
                 'browserName': 'firefox'
-            },
-            {
-                'browserName': 'chrome'
             }
         ],
         specs: ['specs/**/*.js'],
