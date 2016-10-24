@@ -7,11 +7,16 @@
     });
     module.exports.config = {
         directConnect: true,
+        capabilities: {
+            'browserName': 'firefox'
+        },
+        /*
         multiCapabilities: [
             {
                 'browserName': 'firefox'
             }
         ],
+        */
         specs: ['specs/**/*.js'],
         jasmineNodeOpts: {
             showColors: true, // Use colors in the command line report.
@@ -22,7 +27,8 @@
         },
         onPrepare: function(){
             browser.getCapabilities().then(function(caps){
-               var browserName = caps.caps_.browserName.toUpperCase();
+            console.log(caps);
+               var browserName = caps.browserName;
                 jasmine.getEnv().addReporter(new Reporter(browserName));               
             });
             browser.ignoreSynchronization=true;
