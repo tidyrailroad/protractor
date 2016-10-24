@@ -8,7 +8,8 @@
     module.exports.config = {
         directConnect: true,
         capabilities: {
-            'browserName': 'firefox'
+            'browserName': 'firefox',
+            'firefox_profile': '/protractor/profiles/firefox'
         },
         specs: ['specs/**/*.js'],
         jasmineNodeOpts: {
