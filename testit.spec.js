@@ -5,7 +5,7 @@
             browser.get("");
         });
             it("C", function(){
-                expect(element.all(by.tagName("h2")).count()).toEqual(5);
+                expect(element.all(by.tagName("h2")).count()).toEqual(6);
             });
     });
 }());
