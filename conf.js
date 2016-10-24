@@ -1,4 +1,4 @@
-(function(){
+(function() {
     "use strict";
     var Xvfb = require("xvfb");
     var xvfb = new Xvfb({
@@ -15,25 +15,17 @@
             showColors: true, // Use colors in the command line report.
         },
         baseUrl: 'http://www.protractortest.org/#/',
-        beforeLaunch: function(){
-            console.log("BEFORE LAUNCH");
+        beforeLaunch: function() {
             xvfb.startSync();
-            console.log("XVFB STARTED");
         },
-        onPrepare: function(){
-            console.log("ON PREPARE");
-            browser.ignoreSynchronization=true;
+        onPrepare: function() {
+            browser.ignoreSynchronization = true;
             var Reporter = require("./reporter.js");
             jasmine.getEnv().addReporter(new Reporter());
         },
-        onComplete: function(){
-            console.log("ON COMPLETE");  
-        },
-        onCleanup: function(){
-            console.log("ON CLEANUP");
-        },
-        afterLaunch: function(){
-            console.log("AFTER LAUNCH");
+        onComplete: function() {},
+        onCleanup: function() {},
+        afterLaunch: function() {
             xvfb.stopSync();
         }
     };

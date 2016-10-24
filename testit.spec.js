@@ -1,11 +1,11 @@
 (function(){
     "use strict";
-    describe("it", function(){
+    describe("A", function(){
         beforeEach(function(){
             browser.get("");
         });
-        it("This is a simple test.  Does it work?", function(){
-            expect(element.all(by.tagName("h2")).count()).toEqual(5);
-        });
+            it("C", function(){
+                expect(element.all(by.tagName("h2")).count()).toEqual(6);
+            });
     });
 }());
