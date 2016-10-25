@@ -8,8 +8,7 @@
     module.exports.config = {
         directConnect: true,
         capabilities: {
-            'browserName': 'firefox',
-            'firefox_profile': '/protractor/profile'
+            'browserName': 'firefox'
         },
         specs: ['specs/**/*.js'],
         jasmineNodeOpts: {
@@ -26,6 +25,7 @@
             browser.ignoreSynchronization=true;
             var Reporter = require("./reporter.js");
             jasmine.getEnv().addReporter(new Reporter());
+            console.log("FINISHED PREPARE");
         },
         onComplete: function(){
             console.log("ON COMPLETE");  
