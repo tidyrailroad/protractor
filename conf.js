@@ -1,10 +1,28 @@
-(function(){
+(function() {
     "use strict";
     var Xvfb = require("xvfb");
     var xvfb = new Xvfb({
         displayNum: 99,
         xvfb_args: ["-screen", "0", "1280x1024x16"]
     });
+    var getFirefoxProfile = function() {
+
+        var q = require('q');
+        var FirefoxProfile = require('firefox-profile');
+        var deferred = q.defer();
+
+        var firefoxProfile = new FirefoxProfile();
+        firefoxProfile.setPreference('browser.newtab.url', 'https://www.angularjs.org');
+        firefoxProfile.encoded(function(encodedProfile) {
+            var multiCapabilities = [{
+                browserName: 'firefox',
+                firefox_profile: encodedProfile
+            }];
+            deferred.resolve(multiCapabilities);
+        });
+
+        return deferred.promise;
+    };
     module.exports.config = {
         directConnect: true,
         capabilities: {
@@ -15,24 +33,24 @@
             showColors: true, // Use colors in the command line report.
         },
         baseUrl: 'http://www.protractortest.org/#/',
-        beforeLaunch: function(){
+        beforeLaunch: function() {
             console.log("BEFORE LAUNCH");
             xvfb.startSync();
             console.log("XVFB STARTED");
         },
-        onPrepare: function(){
+        onPrepare: function() {
             console.log("ON PREPARE");
-            browser.ignoreSynchronization=true;
+            browser.ignoreSynchronization = true;
             var Reporter = require("./reporter.js");
             jasmine.getEnv().addReporter(new Reporter());
         },
-        onComplete: function(){
-            console.log("ON COMPLETE");  
+        onComplete: function() {
+            console.log("ON COMPLETE");
         },
-        onCleanup: function(){
+        onCleanup: function() {
             console.log("ON CLEANUP");
         },
-        afterLaunch: function(){
+        afterLaunch: function() {
             console.log("AFTER LAUNCH");
             xvfb.stopSync();
         }
