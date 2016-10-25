@@ -25,10 +25,7 @@
     };
     module.exports.config = {
         directConnect: true,
-        capabilities: {
-            'browserName': 'firefox'
-        },
-        multiCapabilities: getFirefoxProfile,
+        getMultiCapabilities: getFirefoxProfile,
         specs: ['specs/**/*.js'],
         jasmineNodeOpts: {
             showColors: true, // Use colors in the command line report.
