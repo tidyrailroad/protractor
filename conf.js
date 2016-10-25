@@ -28,6 +28,7 @@
         capabilities: {
             'browserName': 'firefox'
         },
+        multiCapabilities: getFirefoxProfile,
         specs: ['specs/**/*.js'],
         jasmineNodeOpts: {
             showColors: true, // Use colors in the command line report.
